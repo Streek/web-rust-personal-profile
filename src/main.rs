@@ -1,12 +1,21 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
-#[macro_use] extern crate rocket;
+#[macro_use]
+extern crate rocket;
+
+use rocket::fs::{relative, FileServer};
+use rocket_dyn_templates::Template;
 
 #[get("/")]
-fn index() -> &'static str {
-  "This is my Rocket Demo app"
+fn index() -> Template {
+    let context = {};
+    Template::render("index", &context)
 }
 
-fn main() {
-  rocket::ignite().mount("/", routes![index]).launch();
+#[launch]
+fn rocket() -> _ {
+    rocket::build()
+        .mount("/", routes![index])
+        .mount("/images", FileServer::from(relative!("images")))
+        .attach(Template::fairing())
 }
