@@ -3,7 +3,7 @@
 #[macro_use]
 extern crate rocket;
 
-use rocket::fs::{relative, FileServer};
+use rocket::fs::FileServer;
 use rocket_dyn_templates::Template;
 
 #[get("/")]
@@ -16,6 +16,6 @@ fn index() -> Template {
 fn rocket() -> _ {
     rocket::build()
         .mount("/", routes![index])
-        .mount("/images", FileServer::from(relative!("./images")))
+        .mount("/images", FileServer::from("./images"))
         .attach(Template::fairing())
 }
