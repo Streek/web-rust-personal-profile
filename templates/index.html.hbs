@@ -5,39 +5,27 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Keith Connolly - SDE</title>
+		<title>Keith Connolly - SDE - Home</title>
 		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<meta name="author" content="">
+		<meta name="keywords" content="software, developer, youtuber, author, father, startup expert, rust, python, ruby, rails, javascript, typescript">
+		<meta name="author" content="Keith Connolly">
 
-		<!-- Font Awesome if you need it
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  -->
 		<link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-		<!--Replace with your tailwind.css once created-->
-
 	</head>
 
 	<body class="h-full font-sans antialiased text-gray-900 bg-repeat bg-center bg-black"
 		style="background-image: url('/images/diagonal-lines.svg');">
 
 		<div class="max-w-4xl flex items-center h-full lg:mt-32 flex-wrap mx-auto my-32 lg:my-0">
-			<!--Main Col-->
 			{{> profile}}
 
-			<!--Img Col-->
 			<div class="w-full lg:w-2/5">
-				<!-- Big profile image for side bar (desktop) -->
 				<img src="images/me.jpg" class="rounded-none lg:rounded-r-lg shadow-2xl hidden lg:block">
-				<!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
-
 			</div>
 
-			<!-- Pin to top right corner -->
 			<div class="absolute top-0 right-0 h-12 w-18 p-4">
 				<button class="js-change-theme focus:outline-none">🌙</button>
 			</div>
-
 		</div>
 
 		{{> timeline}}
@@ -45,16 +33,13 @@
 		<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tippy.js@4"></script>
 		<script>
-			//Init tooltips
 			tippy('.link', {
 				placement: 'bottom'
 			})
 
-			//Toggle mode
 			const toggle = document.querySelector('.js-change-theme');
 			const body = document.querySelector('body');
 			const profile = document.getElementById('profile');
-
 
 			toggle.addEventListener('click', () => {
 				if (body.classList.contains('text-gray-900')) {
@@ -72,7 +57,5 @@
 				}
 			});
 		</script>
-
 	</body>
-
 </html>
